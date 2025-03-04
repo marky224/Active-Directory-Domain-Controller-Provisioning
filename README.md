@@ -57,6 +57,10 @@ Manually provisioning an Active Directory Domain Controller involves several ste
   - Internet access with Google DNS (`8.8.8.8`) required during parts of the provisioning process.
 - **Disk Space**: At least 20 GB free.
 
+## Ensuring Proper Licensing
+
+To use these scripts in a production environment, ensure all tools and software involved are properly licensed. Here’s what you need to verify:
+
 ## Script Files
 
 | File Name                     | Purpose                                                                 |
@@ -72,8 +76,8 @@ Manually provisioning an Active Directory Domain Controller involves several ste
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/marky224/ad-dc-provisioning.git
-   cd ad-dc-provisioning
+   git clone https://github.com/marky224/Active-Directory-Domain-Controller-Provisioning.git
+   cd Active-Directory-Domain-Controller-Provisioning
     ```
 2. **Ensure Prerequisites Are Met**: See above.
 
@@ -104,7 +108,4 @@ Manually provisioning an Active Directory Domain Controller involves several ste
 ## Future Roadmap
   - Add support for a JSON configuration file to customize IP, forest name, and other settings.
   - Expand provisioning scripts for additional network components (e.g., workstations, Ansible nodes).
-
-## License
-  - MIT License (LICENSE) - Feel free to use, modify, and distribute.
 
