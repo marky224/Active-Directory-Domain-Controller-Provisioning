@@ -40,7 +40,7 @@ This repository focuses solely on the provisioning (initial setup) of an Active 
    ```bash
    git clone https://github.com/marky224/ad-dc-provisioning.git
    cd ad-dc-provisioning
-  ```
+    ```
 2. **Ensure Prerequisites Are Met**: See above.
 
 3. **Open PowerShell as Administrator**.
