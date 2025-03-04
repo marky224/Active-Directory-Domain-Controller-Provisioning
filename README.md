@@ -47,14 +47,13 @@ This repository focuses solely on the provisioning (initial setup) of an Active 
 
 4. **Run Scripts in Sequence**:
   - Copy scripts to C:\Configuration\ on the target server.
-powershell
-```
-.\00-Install-Updates.ps1      # Optional: Updates system
-.\01-Check-Prerequisites.ps1  # Validates environment
-.\02-Set-StaticIP.ps1         # Sets network config
-.\03-Install-ADDSRole.ps1     # Installs AD DS role
-.\04-Promote-DomainController.ps1  # Promotes to DC
-.\05-Post-Configuration.ps1   # Finalizes setup
+  ```powershell
+  .\00-Install-Updates.ps1      # Optional: Updates system
+  .\01-Check-Prerequisites.ps1  # Validates environment
+  .\02-Set-StaticIP.ps1         # Sets network config
+  .\03-Install-ADDSRole.ps1     # Installs AD DS role
+  .\04-Promote-DomainController.ps1  # Promotes to DC
+  .\05-Post-Configuration.ps1   # Finalizes setup
 ```
 5. **Verify Logs**: Check `C:\ADSetup\` for detailed output.
 
