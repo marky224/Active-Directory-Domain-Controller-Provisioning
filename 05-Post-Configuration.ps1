@@ -55,5 +55,22 @@ try {
     "ERROR: SMBv1 disable failed - $_" | Out-File -FilePath $logFile -Append
 }
 
+# Configure WinRM for Ansible and configure firewall rule for WinRM HTTP (port 5985)
+try {
+    Write-Host "Configuring WinRM for Ansible..."
+    winrm quickconfig -quiet
+    Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true
+    Set-Item -Path WSMan:\localhost\Service\AllowUnencrypted -Value $true
+
+    Write-Host "Opening WinRM port 5985 in firewall..."
+    New-NetFirewallRule -Name "WinRM HTTP" -DisplayName "WinRM HTTP" -Enabled True -Profile Any -Action Allow -Direction Inbound -LocalPort 5985 -Protocol TCP
+
+    Write-Host "Post-configuration complete."
+}
+catch {
+    Write-Host "Error during post-configuration: $_"
+    exit 1
+}
+
 "Post-configuration completed at $(Get-Date)" | Out-File -FilePath $logFile -Append
 Write-Host "Post-configuration completed successfully." -ForegroundColor Green
