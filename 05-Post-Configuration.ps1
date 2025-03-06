@@ -58,7 +58,7 @@ try {
 try {
     # Generate a self-signed certificate for WinRM HTTPS
     Write-Host "Generating self-signed certificate for WinRM HTTPS..."
-    $Cert = New-SelfSignedCertificate -DnsName "win2025.msp.local" -CertStoreLocation Cert:\LocalMachine\My -NotAfter (Get-Date).AddYears(5)
+    $Cert = New-SelfSignedCertificate -DnsName "ACDC01-msp.msp.local" -CertStoreLocation Cert:\LocalMachine\My -NotAfter (Get-Date).AddYears(5)
     $Thumbprint = $Cert.Thumbprint
 
     # Export the certificate for RHEL trust
@@ -68,7 +68,7 @@ try {
     # Configure WinRM for HTTPS
     Write-Host "Configuring WinRM for HTTPS on port 5986..."
     winrm quickconfig -quiet
-    winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=`"win2025.msp.local`";CertificateThumbprint=`"$Thumbprint`"}"
+    winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=`"ACDC01-msp.msp.local`";CertificateThumbprint=`"$Thumbprint`"}"
 
     # Configure firewall rule for WinRM HTTPS (port 5986)
     Write-Host "Opening WinRM port 5986 in firewall..."
