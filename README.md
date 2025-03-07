@@ -67,16 +67,16 @@ Manually provisioning an Active Directory Domain Controller involves several ste
 
 To use these scripts in a production environment, ensure all tools and software involved are properly licensed. Here’s what you need to verify:
 
-## Script Files
+## Scripts Overview
 
-| File Name                     | Purpose                                                                 |
-|-------------------------------|-------------------------------------------------------------------------|
-| `00-Install-Updates.ps1`      | (Optional) Installs Windows Updates and reboots if needed.              |
-| `01-Check-Prerequisites.ps1`  | Verifies OS, admin privileges, and disk space.                         |
-| `02-Set-StaticIP.ps1`         | Configures static IP (e.g., `192.168.0.10`) and Google DNS (`8.8.8.8`).|
-| `03-Install-ADDSRole.ps1`     | Installs AD Domain Services role and management tools.                 |
-| `04-Promote-DomainController.ps1` | Promotes server to a DC, creates `msp.local` forest, and reboots.  |
-| `05-Post-Configuration.ps1`   | Sets DNS to DC (e.g., `192.168.0.10`), adds forwarders, and hardens security.|
+| File Name                 | Purpose                                      |
+|---------------------------|----------------------------------------------|
+| `00-Install-Updates.ps1`  | (Optional) Installs Windows updates.         |
+| `01-Check-Prerequisites.ps1` | Verifies OS and prerequisites.         |
+| `02-Set-StaticIP.ps1`     | Configures static IP and DNS.                |
+| `03-Install-ADDSRole.ps1` | Installs AD DS role and tools.               |
+| `04-Promote-DomainController.ps1` | Promotes server to DC.            |
+| `05-Post-Configuration.ps1` | Finalizes DNS, hostname (`ADDC01-msp`), and security. |
 
 ## Usage
 
