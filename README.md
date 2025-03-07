@@ -8,9 +8,9 @@ This repository focuses solely on the provisioning (initial setup) of an Active 
 
 ## ADDC Setup Verification
 
-Below is a screenshot verifying the successful setup of the ADDC (`ADDC01-msp`) with `msp.local`:
+Below is a screenshot verifying the successful setup of the ADDC (`ADDC01-msp`) with the `msp.local` domain:
 
-![ADDC Setup Screenshot](https://github.com/marky224/Active-Directory-Domain-Controller-Provisioning/blob/main/assets/ad_dc_setup_screenshot.png?raw=true)
+![ADDC Setup Screenshot](https://github.com/marky224/Active-Directory-Domain-Controller-Provisioning/raw/main/images/ad_dc_setup_screenshot.jpg)
 
 ## Features
 
