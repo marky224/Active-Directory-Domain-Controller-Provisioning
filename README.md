@@ -6,6 +6,12 @@ This repository contains PowerShell scripts to automate the provisioning of an A
 
 This repository focuses solely on the provisioning (initial setup) of an Active Directory Domain Controller. Configuration (e.g., adding users, GPOs) and management (e.g., monitoring, backups) are out of scope and will be addressed in separate repositories as part of a broader network virtualization project.
 
+## ADDC Setup Verification
+
+Below is a screenshot verifying the successful setup of the ADDC (`ADDC01-msp`) with `msp.local`:
+
+![ADDC Setup Screenshot](https://github.com/marky224/Active-Directory-Domain-Controller-Provisioning/blob/main/assets/ad_dc_setup_screenshot.png?raw=true)
+
 ## Features
 
 - **End-to-End Automation**: Fully provisions a DC from initial checks to post-configuration.
