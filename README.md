@@ -113,5 +113,3 @@ To use these scripts in a production environment, ensure all tools and software 
 
 ## Future Roadmap
   - Add support for a JSON configuration file to customize IP, forest name, and other settings.
-  - Expand provisioning scripts for additional network components (e.g., workstations, Ansible nodes).
-
