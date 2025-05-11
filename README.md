@@ -133,6 +133,3 @@ To use these scripts in a production environment, ensure all tools and software 
     - Enforces strong password policies for AD accounts.
     - Configures Windows Firewall to allow Ansible WinRM communication (ports 5985-5986).
     - Sets DNS forwarders (e.g., 8.8.8.8, 8.8.4.4) for reliable resolution.
-
-## Future Roadmap
-  - Add support for a JSON configuration file to customize IP, forest name, and other settings.
