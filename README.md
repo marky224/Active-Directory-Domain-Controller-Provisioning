@@ -65,12 +65,12 @@ Manually provisioning an Active Directory Domain Controller involves several ste
 
 ## Sample Dataset for Testing
 
-The `ADLabDataset` folder contains a sample Active Directory dataset from [Active Directory Pro](https://activedirectorypro.com/downloads/ActiveDirectory_Lab_Scripts.zip), including 3,000 users, 20 groups, and 21 organizational units (OUs). This dataset simulates a corporate IT environment, enabling:
+The `ad-sample-dataset` folder contains a sample Active Directory dataset from [Active Directory Pro](https://activedirectorypro.com/downloads/ActiveDirectory_Lab_Scripts.zip), including 3,000 users, 20 groups, and 21 organizational units (OUs). This dataset simulates a corporate IT environment, enabling:
 - Testing of DC provisioning scripts with realistic data.
 - Automation practice for bulk user imports, group management, and OU structuring.
 - Validation of group policies and security settings in a large-scale AD setup.
 
-See `ADLabDataset/README.md` for usage instructions and integration details.
+See `ad-sample-dataset/README.md` for usage instructions and integration details.
 
 ## Domain Join Automation
 
@@ -81,7 +81,7 @@ The `ad-domain-join` folder contains scripts to automate joining Windows and Red
 These scripts streamline workstation integration for MSPs, supporting:
 - Rapid domain joins with minimal manual configuration.
 - Compatibility with diverse client environments (Windows and RHEL 9).
-- Testing with the `ADLabDataset` user accounts for realistic scenarios (e.g., logging in as a domain user).
+- Testing with the `ad-sample-dataset` user accounts for realistic scenarios (e.g., logging in as a domain user).
 
 See `ad-domain-join/README.md` for script details, prerequisites, and usage.
 
@@ -98,7 +98,7 @@ To use these scripts in a production environment, ensure all tools and software 
 | `03-Install-ADDSRole.ps1` | Installs AD DS role and tools.               |
 | `04-Promote-DomainController.ps1` | Promotes server to DC.            |
 | `05-Post-Configuration.ps1` | Finalizes DNS, hostname (`ADDC01-msp`), and security. |
-| `ADLabDataset/` | Contains scripts and CSV files for populating AD with sample data (3,000 users, 20 groups, 21 OUs): <br> - `create_users.ps1`: Imports users from `users.csv`. <br> - `create_groups.ps1`: Creates groups from `groups.csv`. <br> - `create_ous.ps1`: Sets up OUs from `ous.csv`. <br> See `ADLabDataset/README.md` for details. |
+| `ad-sample-dataset/` | Contains scripts and CSV files for populating AD with sample data (3,000 users, 20 groups, 21 OUs): <br> - `create_users.ps1`: Imports users from `users.csv`. <br> - `create_groups.ps1`: Creates groups from `groups.csv`. <br> - `create_ous.ps1`: Sets up OUs from `ous.csv`. <br> See `ad-sample-dataset/README.md` for details. |
 | `ad-domain-join/` | Contains scripts for joining client PCs to the AD domain: <br> - `Join-ADWindows.ps1`: Joins Windows 10/11 PCs to `msp.local`. <br> - `join_ad_rhel9.sh`: Joins RHEL 9 systems to `msp.local` using `realmd`/`sssd`. <br> See `ad-domain-join/README.md` for details. |
 
 ## Usage
