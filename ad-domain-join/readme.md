@@ -1,6 +1,6 @@
 # Active Directory Domain Join Automation
 
-This folder contains PowerShell and/or shell scripts to automate the process of joining Windows and Linux PCs to the Active Directory (AD) domain created by the main project (e.g., `msp.local`). These scripts are designed for Managed Service Providers (MSPs) to streamline client workstation integration into a newly provisioned AD environment.
+This folder contains PowerShell and shell scripts to automate the process of joining Windows and Linux PCs to the Active Directory (AD) domain created by the main project (e.g., `msp.local`). These scripts are designed for Managed Service Providers (MSPs) to streamline client workstation integration into a newly provisioned AD environment.
 
 ## Contents
 
