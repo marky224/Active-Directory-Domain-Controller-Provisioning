@@ -1,4 +1,4 @@
-# Active Directory Domain Controller Provisioning
+# Active Directory Domain Controller Provisioning and Management
 
 This repository contains PowerShell scripts to automate the provisioning of an Active Directory Domain Controller (DC) on **Windows Server 2025** in an IT-MSP production environment. These scripts streamline the initial setup of a new AD forest and promotes a server to a DC with best practices, designed for Managed Service Providers (MSPs).
 
