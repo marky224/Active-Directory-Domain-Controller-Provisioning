@@ -20,5 +20,6 @@ $groups = Import-Csv c:\it\groups.csv
       }#end groupProps
 
     New-ADGroup @groupProps
+    Write-Host "Successfully created group: $($group.name)" -ForegroundColor Green
     
 } #end foreach loop
