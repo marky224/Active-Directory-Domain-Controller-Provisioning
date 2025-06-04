@@ -1,6 +1,4 @@
 #Import active directory module for running AD cmdlets
-#Author: Robert Allen
-#Website: activedirectrypro.com
 
 Import-Module activedirectory
 
@@ -11,10 +9,13 @@ $Users = Import-csv c:\it\users.csv
 foreach ($User in $Users) {
     # Read user data from each field in each row
     # the username is used more often, so to prevent typing, save that in a variable
-   $Username       = $User.SamAccountName
+    $Username = $User.SamAccountName
+
+    # Log the user being processed for verification
+    Write-Host "Processing user: $Username"
 
     # Check to see if the user already exists in AD
-    if (Get-ADUser -F {SamAccountName -eq $Username}) {
+    if (Get-ADUser -Filter "SamAccountName -eq '$Username'") {
          #If user does exist, give a warning
          Write-Warning "A user account with username $Username already exist in Active Directory."
     }
@@ -30,7 +31,7 @@ foreach ($User in $Users) {
             Initials                   = $User.Initials
             Name                       = $User.Name
             DisplayName                = $User.DisplayName
-            UserPrincipalName          = $user.UserPrincipalName 
+            UserPrincipalName          = $User.UserPrincipalName 
             Department                 = $User.Department
             Description                = $User.Description
             Office                     = $User.Office
@@ -49,10 +50,7 @@ foreach ($User in $Users) {
             ChangePasswordAtLogon      = $true
         }   #end userprops   
 
-         New-ADUser @userProps
-       #  Write-Host "The user account $User is created." -ForegroundColor Cyan
-   
-
+        New-ADUser @userProps
+        Write-Host "The user account $Username is created." -ForegroundColor Cyan
     } #end else
-   
 }
