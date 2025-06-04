@@ -47,7 +47,7 @@ try {
 
 # Update DNS to the DC itself
 $interfaceName = (Get-NetAdapter | Where-Object { $_.Status -eq "Up" } | Select-Object -First 1).Name
-$dnsServers = "192.168.0.10"
+$dnsServers = "192.168.1.10"
 Write-Host "Updating DNS server to $dnsServers (DC itself) for AD functionality..." -ForegroundColor Yellow
 Set-DnsClientServerAddress -InterfaceAlias $interfaceName -ServerAddresses $dnsServers -Verbose | Out-File -FilePath $logFile -Append
 "Updated DNS to $dnsServers for AD" | Out-File -FilePath $logFile -Append
