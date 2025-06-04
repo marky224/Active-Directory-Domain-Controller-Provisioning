@@ -32,7 +32,7 @@ Manually provisioning an Active Directory Domain Controller involves several ste
    - **Automation**: `01-Check-Prerequisites.ps1` runs automated checks and exits with clear error messages if conditions aren’t met, preventing downstream failures.
 
 3. **Network Configuration**:
-   - **Manual Task**: Set a static IP address (e.g., `192.168.0.10`), configure DNS to an external provider (e.g., `8.8.8.8`), and ensure network connectivity.
+   - **Manual Task**: Set a static IP address (e.g., `192.168.1.10`), configure DNS to an external provider (e.g., `8.8.8.8`), and ensure network connectivity.
    - **Automation**: `02-Set-StaticIP.ps1` detects the active network adapter, assigns the static IP, sets Google DNS, and validates connectivity—all without manual input.
 
 4. **AD DS Role Installation**:
@@ -44,7 +44,7 @@ Manually provisioning an Active Directory Domain Controller involves several ste
    - **Automation**: `04-Promote-DomainController.ps1` handles the promotion, securely manages the DSRM password, creates the forest, and triggers a reboot—all in one step.
 
 6. **Post-Configuration**:
-   - **Manual Task**: Update DNS to point to the DC itself (e.g., `192.168.0.10`), add external DNS forwarders, and apply security hardening (e.g., disable SMBv1).
+   - **Manual Task**: Update DNS to point to the DC itself (e.g., `192.168.1.10`), add external DNS forwarders, and apply security hardening (e.g., disable SMBv1).
    - **Automation**: `05-Post-Configuration.ps1` reconfigures DNS, adds forwarders (e.g., `8.8.8.8`, `8.8.4.4`), and applies security settings tailored for MSP environments, reducing manual hardening effort.
 
 **How Automation Helps**:
@@ -59,7 +59,7 @@ Manually provisioning an Active Directory Domain Controller involves several ste
 - **Privileges**: Scripts must run with administrative rights (Run as Administrator).
 - **Network**: 
   - Server in bridged mode (e.g., VMware Workstation) or on a physical network.
-  - Static IP reserved (e.g., `192.168.0.10`) outside DHCP scope on a `255.255.255.0` subnet.
+  - Static IP reserved (e.g., `192.168.1.10`) outside DHCP scope on a `255.255.255.0` subnet.
   - Internet access with Google DNS (`8.8.8.8`) required during parts of the provisioning process.
 - **Disk Space**: At least 20 GB free.
 
