@@ -21,4 +21,7 @@ foreach ($ou in $ADou)
             -Name $name `
             -path $path `      
 
+	   # Print a confirmation message
+           Write-Host "Created OU: $name at $path"
+
 }
