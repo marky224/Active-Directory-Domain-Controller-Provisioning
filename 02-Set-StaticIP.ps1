@@ -40,15 +40,15 @@ if ($profile -and $profile.NetworkCategory -ne "Private") {
 $currentConfig = Get-NetIPConfiguration -InterfaceAlias $interfaceName -ErrorAction SilentlyContinue
 $gateway = $currentConfig.IPv4DefaultGateway.NextHop
 if (-not $gateway) {
-    Write-Warning "No default gateway detected. Assuming 192.168.0.1 (UniFi Express possible default). Adjust if incorrect."
-    $gateway = "192.168.0.1"
+    Write-Warning "No default gateway detected. Assuming 192.168.1.1 (UniFi Express possible default). Adjust if incorrect."
+    $gateway = "192.168.1.1"
     Write-Log "WARNING: Gateway not detected. Defaulting to $gateway."
 } else {
     Write-Log "Detected gateway: $gateway"
 }
 
 # Static IP settings
-$staticIP = "192.168.0.10"
+$staticIP = "192.168.1.10"
 $prefixLength = 24  # Equivalent to 255.255.255.0
 $dnsServers = "8.8.8.8"  # Using Google DNS for internet access pre-promotion
 
@@ -88,6 +88,6 @@ Write-Log "Static IP configuration completed."
 Write-Host "=============================================================" -ForegroundColor Yellow
 Write-Host "DNS CONFIGURATION NOTE" -ForegroundColor Yellow
 Write-Host "DNS is set to $dnsServers (Google DNS) for internet access before AD promotion." -ForegroundColor Yellow
-Write-Host "Post-promotion, update DNS to 192.168.0.10 (the DC itself) for AD functionality." -ForegroundColor Yellow
+Write-Host "Post-promotion, update DNS to 192.168.1.10 (the DC itself) for AD functionality." -ForegroundColor Yellow
 Write-Host "This will be adjusted in 05-Post-Configuration.ps1." -ForegroundColor Yellow
 Write-Host "=============================================================" -ForegroundColor Yellow
