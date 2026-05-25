@@ -2,6 +2,8 @@
 
 This repository contains PowerShell scripts to automate the provisioning of an Active Directory Domain Controller (DC) on **Windows Server 2025** in an IT-MSP production environment. These scripts streamline the initial setup of a new AD forest and promotes a server to a DC with best practices, designed for Managed Service Providers (MSPs).
 
+> **See also — [windows-ad-ansible-kvm](https://github.com/marky224/windows-ad-ansible-kvm)** — the Ansible/IaC continuation of this project. Provisions the same lab (Win Server 2025 DC + Win 11 clients + Ubuntu member) end-to-end on KVM/libvirt, with no manual steps. Recommended for new builds.
+
 ## Project Overview
 
 This repository focuses solely on the provisioning (initial setup) of an Active Directory Domain Controller.
