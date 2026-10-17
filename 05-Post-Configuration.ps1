@@ -63,9 +63,10 @@ Write-Host "DNS updated successfully." -ForegroundColor Green
 # Configure DNS forwarders (e.g., Google's public DNS for internet)
 try {
     Write-Host "Configuring DNS forwarders..." -ForegroundColor Yellow
-    $ExistingForwarders = Get-DnsServerForwarder | Select-Object -ExpandProperty IPAddress
+    # Compare as a list of strings: zero, one or many existing forwarders
+    $ExistingForwarders = @(Get-DnsServerForwarder | Select-Object -ExpandProperty IPAddress | Where-Object { $_ } | ForEach-Object { $_.ToString() })
     $NewForwarders = @("8.8.8.8", "8.8.4.4")
-    $ForwardersToAdd = $NewForwarders | Where-Object { $_ -notin $ExistingForwarders.ToString() }
+    $ForwardersToAdd = @($NewForwarders | Where-Object { $_ -notin $ExistingForwarders })
     if ($ForwardersToAdd) {
         Add-DnsServerForwarder -IPAddress $ForwardersToAdd -Verbose | Out-File -FilePath $logFile -Append
         "Added DNS forwarders: $($ForwardersToAdd -join ', ')" | Out-File -FilePath $logFile -Append
