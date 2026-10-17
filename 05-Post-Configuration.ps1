@@ -10,6 +10,13 @@ $logFile = "C:\ADSetup\AD_PostConfig_Log.txt"
 if (-not (Test-Path "C:\ADSetup")) { New-Item -ItemType Directory -Path "C:\ADSetup" | Out-Null }
 "Starting post-configuration at $(Get-Date)" | Out-File -FilePath $logFile
 
+# Logging function (same as 04; the restart prompt below uses it)
+function Write-Log {
+    param ([string]$Message)
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    "$timestamp - $Message" | Out-File -FilePath $logFile -Append
+}
+
 # Set hostname to ADDC01-msp
 $NewComputerName = "ADDC01-msp"
 $currentName = $env:COMPUTERNAME
